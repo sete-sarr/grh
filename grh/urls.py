@@ -2,6 +2,7 @@
 from django.contrib import admin
 from django.urls import path, include
 from rest_framework_simplejwt.views import TokenObtainPairView, TokenRefreshView
+from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 
 
 urlpatterns = [
@@ -15,3 +16,5 @@ urlpatterns = [
     path('api/', include('accounts.urls')),
     path('api/', include('postes.urls')),
 ]
+
+urlpatterns += staticfiles_urlpatterns()
