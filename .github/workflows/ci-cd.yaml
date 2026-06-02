@@ -1,1 +1,27 @@
 
+name : django CI Cd
+on : 
+  push: 
+     branches: 
+           -main
+           -pull_request
+           
+jobs:
+  test:
+    steps:
+      - name: cloner le projet
+      uses : actions/checkoutv@4
+      -name: installation de python
+      uses : actions/set-up-python
+      with:
+         python: "3.12"
+      -name: update de gestion de package   
+      run: pip install --upgrade
+      -name : installer les dependances
+      run: pip install -r requirements.txt
+      run: python manage.py test
+      
+      
+      
+    
+     
